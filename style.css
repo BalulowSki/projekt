@@ -4,7 +4,7 @@
 }
 
 body {
-    background-image: url('images/111.png');
+    background-image: url('111.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -29,17 +29,8 @@ body {
     font-weight: bold;
 }
 
-
-/*.clickerContanier img {
-  position: relative;
-  transition: all .2s ease-in-out;
-}
-
-.clickerContanier img:hover { transform: scale(1.1) }
-.clickerContanier img:active { transform: scale(0.99);}*/
-
 #clicker {
-    background-image: url('images/cycle.png');
+    background-image: url('cycle.png');
     background-size: contain;
     position: relative;
     transition: all .2s ease-in-out;
@@ -117,20 +108,17 @@ body {
     margin-right: 5px;
     padding: 5px;
     background-color: #CD853F;
-    /* Brown */
     opacity: 0.8;
     transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 #upgradeContanier img:hover {
     background-color: #8B4513;
-    /* Darker Brown on hover */
     transform: scale(1.05);
 }
 
 #achievementContanier img:hover {
     background-color: #8B4513;
-    /* Darker Brown on hover */
     transform: scale(1.05);
 }
 
