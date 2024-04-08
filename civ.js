@@ -1,150 +1,5 @@
-let pathname = window.location.pathname;
-let ascensionBonus = 1;
-let buyIndex = 1;
-
-let clickCount = 0;
-let comboActive = false;
-const comboClickCount = 50;
-const comboTimeout = 5000;
-let comboTimer;
-let buyAll = false;
-
-const clicker = document.getElementById('clicker');
-clicker.addEventListener('mousedown', startCombo);
-
-function startCombo() {
-    clickCount++;
-    if (clickCount === comboClickCount) {
-        game.clickValue *= 2;
-        comboActive = true;
-        clearTimeout(comboTimer);
-        comboTimer = setTimeout(endCombo, comboTimeout);
-    }
-    updateClickerFunctionality();
-}
-
-function endCombo() {
-    if (comboActive) {
-        clickCount = 0;
-        comboActive = false;
-        game.clickValue = 1;
-        updateClickerFunctionality();
-    }
-}
-
-
-console.log(pathname)
-
-let clickSound = document.getElementById('clickSound');
-
-function playClickSound() {
-    if (clickSound && !clickSound.paused) {
-        clickSound.pause();
-        clickSound.currentTime = 0;
-    }
-    clickSound.play();
-}
-
-let button = document.getElementById('clicker');
-button.addEventListener('click', playClickSound);
-
-
-let clickSound2 = document.getElementById('clickSound');
-
-function playClickSound2() {
-    if (clickSound2 && !clickSound2.paused) {
-        clickSound2.pause();
-        clickSound2.currentTime = 0;
-    }
-    clickSound2.play();
-}
-
-let clickSound3 = document.getElementById('clickSound');
-
-function playClickSound3() {
-    if (clickSound3 && !clickSound3.paused) {
-        clickSound3.pause();
-        clickSound3.currentTime = 0;
-    }
-    clickSound3.play();
-}
-
-function buy10() {
-    buyIndex = 2;
-    console.log('Buy 10');
-    updateBuyIndex();
-}
-
-function buy100() {
-    buyIndex = 3;
-    console.log('Buy 100');
-    updateBuyIndex();
-}
-
-function updateBuyIndex() {
-    if (buyIndex == 1) {
-        document.getElementById('buy1').style.color = '#f5f5f5';
-        document.getElementById('buy10').style.color = '#595959';
-        document.getElementById('buy100').style.color = '#595959';
-        let button10 = document.getElementById('buy1');
-        button10.addEventListener('click', playClickSound2);
-        console.log('afford')
-    } else if (buyIndex == 2) {
-        document.getElementById('buy10').style.color = '#f5f5f5';
-        document.getElementById('buy100').style.color = '#595959';
-        document.getElementById('buy1').style.color = '#595959';
-        let button11 = document.getElementById('buy10');
-        button11.addEventListener('click', playClickSound2);
-    } else if (buyIndex == 3) {
-        document.getElementById('buy100').style.color = '#f5f5f5';
-        document.getElementById('buy1').style.color = '#595959';
-        document.getElementById('buy10').style.color = '#595959';
-        let button100 = document.getElementById('buy100');
-        button100.addEventListener('click', playClickSound2);
-    }
-}
-
-let game = {
-    score: 0,
-    totalScore: 0,
-    totalClicks: 0,
-    clickValue: 1,
-    version: 0.4,
-    achievementsEarned: 0,
-    completionPercentage: 0,
-    ascendInfo: 1,
-
-    addToScore: function(amount) {
-        this.score += amount;
-        this.totalScore += amount;
-        display.updateScore();
-        console.log(game.score)
-    },
-
-    getScorePerSecond: function() {
-        let scorePerSecond = 0;
-        for (i = 0; i < building.name.length; i++) {
-            scorePerSecond += building.income[i] * building.count[i] * ascensionBonus
-        }
-        return scorePerSecond * game.ascendInfo
-    }
-};
-
-function abbreviateNumber(number) {
-    const abbreviations = ["", "k", "M", "B", "T", "Qa", "Qi", "Sx", "Sp", "Oc", "No", "Dc", "Ud", "Dd", "Td", "Qad", "Qid", "Sd", "Std", "Od", "Nvd", "Vg", "Uvg", "Dvg", "Tvg", "Qavg"];
-    const decimals = 1;
-
-    let index = 0;
-    while (number >= 1000 && index < abbreviations.length - 1) {
-        number /= 1000;
-        index++;
-    }
-
-    const formattedNumber = number.toFixed(decimals);
-    return formattedNumber + abbreviations[index];
-}
-
 let timeMachineBrought = false;
+let pathname = window.location.pathname;
 
 let building = {
     name: [
@@ -158,7 +13,6 @@ let building = {
         'Planet Hopping Boots',
         'Matter Transformer',
         'HTML Console',
-
     ],
     image: [
         'cursor.png',
@@ -171,12 +25,13 @@ let building = {
         'planet.png',
         'matter.png',
         'console.png',
+
     ],
     count: [
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     ],
     income: [
-        1,
+        100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
         5,
         8,
         47,
@@ -204,46 +59,27 @@ let building = {
     ],
 
     description: [
-        'Cursors to automatically click the Cycle once a second',
-        'Noob Coders to code your projects, kind people will leave them tips',
-        'Theme Designers to make Replit Themes, kind people will leave them tips',
-        'Solar Pannels to turn energy into Cycles',
-        'Cycle Facotrys to create artificial Cycles',
-        'Cycle Singesr that produce cycles instead of sound',
-        'Turn the economy into Cycles',
-        'Hopp to diiferent planets to steal their cycles',
-        'Turn matter into Cycles',
-        'Generate Cycles from the very code this website runs off'
+        'Kursory automatycznie klikają Cykl raz na sekundę',
+        'Noob Coders do kodowania Twoich projektów, mili ludzie zostawią im wskazówki',
+        'Projektanci motywów, którzy będą tworzyć repliki motywów, mili ludzie zostawią im wskazówki',
+        'Panele słoneczne zamieniające energię w cykle',
+        'Fabryki cykli do tworzenia sztucznych cykli',
+        'Cycle Singesr, które zamiast dźwięku wytwarzają cykle',
+        'Zamień gospodarkę w cykle',
+        'Wskakuj na różne planety, aby ukraść ich cykle',
+        'Zamień materię w cykle',
+        'Generuj cykle na podstawie samego kodu uruchamianego przez tę witrynę'
     ],
 
     purchase: function(index) {
-        if (buyIndex == 1) {
-            if (game.score >= this.cost[index]) {
-                game.score -= this.cost[index];
-                this.count[index] += 1;
-                this.cost[index] = Math.ceil(this.cost[index] * 1.10);
-            }
-        } else if (buyIndex == 2) {
-            if (game.score >= this.cost[index] * 1.10 ** 10) {
-                game.score -= this.cost[index] * 1.10 ** 10;
-                this.count[index] += 10;
-                this.cost[index] = Math.ceil(this.cost[index] * 1.10 ** 10);
-            }
-        } else if (buyIndex == 3) {
-            if (game.score >= this.cost[index] * 1.10 ** 100) {
-                game.score -= this.cost[index] * 1.10 ** 100;
-                this.count[index] += 100;
-                this.cost[index] = Math.ceil(this.cost[index] * 1.10 ** 100);
-            }
+        if (game.score >= this.cost[index]) {
+            game.score -= this.cost[index];
+            this.count[index] += 1;
+            this.cost[index] = Math.ceil(this.cost[index] * 1.10);
+            display.updateScore();
+            display.updateShop();
+            display.updateUpgrades();
         }
-
-        let button2 = document.getElementById('shopContanier');
-        button2.addEventListener('click', playClickSound2);
-        console.log('afford')
-
-        display.updateScore();
-        display.updateShop();
-        display.updateUpgrades();
     }
 };
 
@@ -621,9 +457,6 @@ let upgrade = {
                 building.income[this.buildingIndex[index]] *= this.bonus[index];
                 this.purchased[index] = true;
 
-                let button2 = document.getElementById('upgradeContanier');
-                button2.addEventListener('click', playClickSound);
-
                 display.updateUpgrades();
                 display.updateScore();
             } else if (this.type[index] == 'click' && game.totalClicks >= this.requirement[index]) {
@@ -744,7 +577,8 @@ let achievement = {
         'Scripting Sorcerer',
         'Code Champion',
         'Digital Overlord',
-        'Pixel Perfectionist'
+        'Pixel Perfectionist',
+        'Time Machine'
     ],
     description: [
         'Click the Cycle 1 time',
@@ -851,7 +685,8 @@ let achievement = {
         'Buy 250 HTML Consoles',
         'Buy 500 HTML Consoles',
         'Buy 750 HTML Consoles',
-        'Buy 1000 HTML Consoles'
+        'Buy 1000 HTML Consoles',
+        'Unlock the power of time...'
     ],
     image: [
         'timeTapper.png',
@@ -958,7 +793,8 @@ let achievement = {
         'htmla6.png',
         'htmla7.png',
         'htmla8.png',
-        'htmla9.png'
+        'htmla9.png',
+        'timeMachine.png'
     ],
     type: [
         'click',
@@ -976,6 +812,7 @@ let achievement = {
         'score',
         'score',
         'score',
+        'building',
         'building',
         'building',
         'building',
@@ -1172,7 +1009,8 @@ let achievement = {
         250,
         500,
         750,
-        1000
+        1000,
+        10
     ],
     objectIndex: [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
         0,
@@ -1264,9 +1102,10 @@ let achievement = {
         9,
         9,
         9,
-        9
+        9,
+        8
     ],
-    awarded: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+    awarded: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
 
     earn: function(index) {
         if (!this.awarded[index]) {
@@ -1276,130 +1115,8 @@ let achievement = {
             document.getElementById('achievementCounter').innerHTML = game.achievementsEarned
         }
     }
-};
-
-let display = {
-    updateScore: function() {
-        let abbreviatedScore = abbreviateNumber(game.score);
-        let abbreviatedCPS = abbreviateNumber(game.getScorePerSecond());
-
-        document.getElementById('score').innerHTML = abbreviatedScore;
-        document.getElementById('scorepersecond').innerHTML = abbreviatedCPS;
-        document.title = abbreviatedScore + ' Cyklonow - Cyklonizator 3000';
-    },
-
-    updateShop: function() {
-        document.getElementById('shopContanier').innerHTML = "";
-        for (i = 0; i < building.name.length; i++) {
-            let abbreviatedCost = abbreviateNumber(building.cost[i])
-            document.getElementById('shopContanier').innerHTML += "<table class='shopButton' title='" + building.name[i] + " &#10" + building.description[i] + "' onclick='building.purchase(" + i + ")'><tr><td id='image'><img src='images/" + building.image[i] + "'></td><td id='nameAndCost'><p>" + building.name[i] + "</p><p><span>🌀 " + abbreviatedCost + "</span> Cycles</p></td><td id='amount'><span>" + building.count[i] + "</span></td></tr></table>"
-
-        }
-    },
-
-    updateUpgrades: function() {
-        document.getElementById('upgradeContanier').innerHTML = '';
-        for (i = 0; i < upgrade.name.length; i++) {
-            if (!upgrade.purchased[i]) {
-                if (upgrade.type[i] == 'building' && building.count[upgrade.buildingIndex[i]] >= upgrade.requirement[i]) {
-                    document.getElementById('upgradeContanier').innerHTML += '<img src="images/' + upgrade.image[i] + '" title="' + upgrade.name[i] + ' &#10; ' + upgrade.description[i] + ' &#10; (' + upgrade.cost[i] + ' Cycles)" onclick="upgrade.purchase(' + i + ')">';
-                } else if (upgrade.type[i] == 'click' && game.totalClicks >= upgrade.requirement[i]) {
-
-                    document.getElementById('upgradeContanier').innerHTML += '<img src="images/' + upgrade.image[i] + '" title="' + upgrade.name[i] + ' &#10; ' + upgrade.description[i] + ' &#10; (' + upgrade.cost[i] + ' Cycles)" onclick="upgrade.purchase(' + i + ')">';
-                }
-            }
-        }
-    },
-
-    updateAchievements: function() {
-        document.getElementById('achievementContanier').innerHTML = "";
-        for (i = 0; i < achievement.name.length; i++) {
-            if (achievement.awarded[i]) {
-                document.getElementById('achievementContanier').innerHTML += '<img src="images/' + achievement.image[i] + '" title="' + achievement.name[i] + ' &#10; ' + achievement.description[i] + '">'
-
-            }
-        }
-    },
-
-    updateAchievementContanier: function() {
-        document.getElementById('achievementCounter').innerHTML = game.achievementsEarned;
-    },
-
-    updateAchievementPercentage: function() {
-        game.completionPercentage = game.achievementsEarned / 105 * 100;
-        game.completionPercentage = Math.round(game.completionPercentage);
-        document.getElementById('completionPercentage').innerHTML = game.completionPercentage;
-        console.log(game.completionPercentage + '%')
-    }
-};
-
-let acsendCost = 2000000000
-
-function acsend() {
-    let acsendPoss = game.score / acsendCost;
-    acsendPoss = Math.round(acsendPoss)
-    abbreviateAscend = abbreviateNumber(acsendPoss);
-    abbreviatedInfo = abbreviateNumber(game.ascendInfo);
-    document.getElementById('acsend').innerHTML = abbreviateAscend;
-    console.log(game.ascendInfo + ' Ascend Info')
-    document.getElementById('ascend').title = `Current Ascension Bonus: ${abbreviatedInfo} \n Click now to Ascend`;
 }
 
-function ascendButton() {
-    let ascendConfirm = game.score / acsendCost;
-    ascendConfirm = Math.round(ascendConfirm);
-    console.log(ascendConfirm + 'x CPS booster');
-
-    let ascendResult = confirm('Are you sure you want to ascend? Ascending will reset your progress, but you will receive a permanent profit boost. If you ascend now, you will be granted a permanent ' + ascendConfirm + 'x CPS booster.');
-
-    if (ascendResult) {
-        game.ascendInfo += ascendConfirm;
-
-        game.score = 0;
-        game.clickValue = 1;
-
-        building.count[0] = 0;
-        building.count[1] = 0;
-        building.count[2] = 0;
-        building.count[3] = 0;
-        building.count[4] = 0;
-        building.count[5] = 0;
-        building.count[6] = 0;
-        building.count[7] = 0;
-        building.count[8] = 0;
-        building.count[9] = 0;
-
-        building.cost[0] = 15;
-        building.cost[1] = 100;
-        building.cost[2] = 1100;
-        building.cost[3] = 12000;
-        building.cost[4] = 130000;
-        building.cost[5] = 1400000;
-        building.cost[6] = 20000000;
-        building.cost[7] = 330000000;
-        building.cost[8] = 5100000000;
-        building.cost[9] = 75000000000;
-
-        upgrade.purchased = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
-
-        console.log(building.name[1] + ' Noob Coders?')
-
-        console.log(building.count[0] + 'Buildings')
-        console.log(building.name[1] + ' Name 2')
-
-        display.updateShop();
-
-        saveGame();
-        loadGame();
-        console.log(building.name[0] + ' Building Name')
-        console.log(game.score + ' Score After')
-    }
-}
-
-function name() {
-    let name = prompt("Jak chcesz nazwać swój biznes?");
-    document.getElementById('yourName').innerHTML = name
-}
 
 function saveGame() {
     let gameSave = {
@@ -1414,9 +1131,7 @@ function saveGame() {
         buildingIncome: building.income,
         buildingCost: building.cost,
         upgradePurchased: upgrade.purchased,
-        achievementAwarded: achievement.awarded,
-        ascendInfo: game.ascendInfo,
-        name: document.getElementById('yourName').innerHTML
+        achievementAwarded: achievement.awarded
     };
     localStorage.setItem('gameSave', JSON.stringify(gameSave));
 }
@@ -1430,7 +1145,6 @@ function loadGame() {
         if (typeof savedGame.achievementsEarned !== 'undefined') game.achievementsEarned = savedGame.achievementsEarned;
         if (typeof savedGame.completionPercentage !== 'undefined') game.completionPercentag = savedGame.completionPercentag;
         if (typeof savedGame.clickValue !== 'undefined') game.clickValue = savedGame.clickValue;
-        if (typeof savedGame.ascendInfo !== 'undefined') game.ascendInfo = savedGame.ascendInfo;
         if (typeof savedGame.buildingCount !== 'undefined') {
             for (i = 0; i < savedGame.buildingCount.length; i++) {
                 building.count[i] = savedGame.buildingCount[i]
@@ -1461,7 +1175,6 @@ function loadGame() {
                 achievement.awarded[i] = savedGame.achievementAwarded[i];
             }
         }
-        document.getElementById('yourName').innerHTML = savedGame.name || '';
     }
 }
 
@@ -1490,14 +1203,11 @@ function createNumberOnClicker(event) {
     }
 
     let element = document.createElement('div');
-    let finalClickValue = game.clickValue * game.ascendInfo;
-
-    let abbreviatedFinalClickValue = abbreviateNumber(finalClickValue);
-    element.textContent = '+' + abbreviatedFinalClickValue;
-    element.classList.add('number', 'unselectable', 'click-number');
+    element.textContent = '+' + game.clickValue;
     element.classList.add('number', 'unselectable');
     element.style.left = position.x + 'px';
     element.style.top = position.y + 'px';
+
     clicker.appendChild(element);
 
     let opacity = 1;
@@ -1519,22 +1229,34 @@ function createNumberOnClicker(event) {
     requestAnimationFrame(animateFadeAndMove);
 }
 
-
 function civInfo() {
     if (timeMachineBrought == true) {
         window.location.href = 'civInfo.html';
         saveGame();
-
-        document.getElementById('modernImg').style.filter = 'greyscale(0%)'
-
+        if (game.completionPercentage >= 75) {
+            document.getElementById('modernImg').style.filter = 'greyscale(0%)'
+        }
     }
 }
 
-function buy1() {
-    buyIndex = 1;
-    console.log('By 1');
-    updateBuyIndex();
+function updateIcons() {
+    console.log(game.completionPercentage)
 }
+
+function returnModern() {
+    window.location.href = 'index.html';
+}
+
+function goStoneage() {
+    console.log(game.completionPercentage)
+    if (game.completionPercentage >= 75) {
+
+        console.log('fail')
+    } else {
+        console.log('pass')
+    }
+}
+
 
 setInterval(function() {
     for (i = 0; i < achievement.name.length; i++) {
@@ -1549,14 +1271,11 @@ setInterval(function() {
 
     game.score += game.getScorePerSecond();
     game.totalScore += game.getScorePerSecond();
-    display.updateScore()
-    display.updateAchievements();
-    display.updateAchievementPercentage();
+
 }, 1000)
 
 setInterval(function() {
-    display.updateScore();
-    display.updateUpgrades();
+
 }, 10000);
 
 setInterval(function() {
@@ -1565,98 +1284,13 @@ setInterval(function() {
 
 document.addEventListener('keydown', e => {
     if (e.key.toLowerCase() === 'y' && e.ctrlKey) {
-        alert('Udało się zapisać grę!')
+        alert('Successfully Saved Game')
         saveGame()
     }
 });
 
 window.onload = function() {
-
-
-    display.updateScore();
-    display.updateUpgrades();
-    display.updateAchievements();
-    display.updateShop();
-    display.updateAchievementContanier();
-    display.updateAchievementPercentage();
-    updateBuyIndex();
-}
-
-let news = {
-    newsInfo: [
-        'Wiadomości: "Cykloniizator 2000" Biją Rekordy z Milionami Kliknięć, Naukowcy Zdumieni!',
-        'Wiadomości: Nowy Power-Up Ujawniony - Przycisk, Który Klika za Ciebie (Bo Kto Potrzebuje Palców?)',
-        'Wiadomości: Entuzjaści Kolarstwa Dominują na Listach Liderów, Rozpoczynają Petycję o Zmianę Nazwy Ziemi na "Clicktopia."',
-        'Wiadomości: Najnowsza Aktualizacja Wprowadza Oszałamiające Tła, Natychmiast Ignorowane Przez Graczy Przeklikujących!',
-        'Wiadomości: Wydarzenie Clickathon Przyciąga Graczy z Całego Świata, Przeklikując Swoją Drogę do Zamieszania!',
-        'Wiadomości: Frenzy Klikania: Gracze Osiągają Niespotykane Prędkości, Miejscowy Czas Ulega Ich Woli!',
-        'Wiadomości: Społeczność "Cycle Clicker" Osiąga 1 Milion Członków, Natychmiast Zamawia 1 Milion Pizz!',
-        'Wiadomości: Ogłoszono Wyłączne Mistrzostwa Clickerów, Zawodnicy Ostrzeżeni, By Przynieść Dodatkowe Przyciski Myszki!',
-        'Wiadomości: Wzmocnij Swoje Kliknięcia z Turbo Wzmacniaczami, Miejscowe Sieci Energetyczne Walczą, By Dotrzymać Kroku!',
-        'Wiadomości: Rywalizuj w Globalnym Turnieju Klikania, Przygotuj Się na Starcie z Australijskimi Kangurami Klikającymi!',
-        'Wiadomości: Klikaj Swoją Drogę do Zwycięstwa z Nowymi Ulepszeniami, Naukowcy Opracowują Klikające Mięśnie ze Stali!',
-        'Wiadomości: Produkty "Cycle Clicker" Dostępne Teraz, Fani Wymagają Pijam z Motywem Clickera!',
-        'Wiadomości: Tryb Wyzwań Uwolniony - Przetestuj Swoje Umiejętności, Clickerzy na Całym Świecie Udają Niebywale Zainteresowanych!',
-        'Wiadomości: Demony Prędkości Dominują na Tygodniowych Listach Liderów, Plotki Krążą o Klawiaturach Z Nadtlenkiem Azotu!',
-        'Wiadomości: Mega-Klik Wydarzenie: Weekend Podwójnych Punków, Naukowcy Obawiają Się Ogromnego Braku Myszek!',
-        'Wiadomości: Mania Ulepszeń: Odblokuj Ostatecznego Clickera, Kodziarze z Okolicy Wymagają Wyższej Płacy za Pracę związaną z Klikaniem!',
-        'Wiadomości: Rywalizacja w Klikaniu: Tygodniowe Turnieje Rozgrzewają Atmosferę, Lokalne Fabryki Klikania Doświadczają Braków Kadrowych!',
-        'Wiadomości: Gorączka Klikania: Gracze Osiągają Obłą Liczbę Kliknięć, Miejscowe Kawiarnie Ogłaszają Stan Wyjątkowego Braku Ziaren Kawy!',
-        'Wiadomości: Finały Mistrzostw: Kto Będzie Królem Clickera? Plotki Krążą o Klikających Monarchach!',
-        'Wiadomości: Gracze Przebijają Bariery 100 Miliardów Kliknięć, Wymyślają Nową Jednostkę Miary: "Clickle"!',
-        'Wiadomości: Kliknij dla Celu: Aktualizacja Charytatywna Już Dostępna, Clickerzy na Całym Świecie Tworzą "Clickerzy Bez Granic"!',
-        'Wiadomości: Legendy Klikania: Poznaj Najlepszych Graczy, Clicker z Największą Liczbą Kliknięć Ogłoszony Oficjalnym Clickerem Clickdomu!',
-        'Wiadomości: Olimpiada Klikania: Kto zdobędzie Złoto? Wydarzenie Obejmuje Maraton Klikania Myszką i Synchronizowane Stukanie Spacji na Klawiaturze!',
-        'Wiadomości: Kliknij Szybciej z Nowymi Sterownikami Przyjaznymi dla Palców, Clickerzy Wymagają Patentu na Nowe Ćwiczenia dla Palców!',
-        'Wiadomości: Wzrost Mistrzów Clickera - Jesteś w Tym? Superbohaterowie Clickerów Tworzą "Ligę Clickerów"!',
-        'Wiadomości: Doroczny Festiwal Clickerów Rozpoczyna Się z Hukiem, Karmiwoje wystrzałowe Prowadzą do Frenzy Klikania!',
-        "Czy chciałbyś, żeby Twoje cytaty pojawiły się tutaj? Wystarczy, że będziesz darczyńcą."
-    ]
-}
-
-let randomIndex = Math.floor(Math.random() * news.newsInfo.length);
-
-let randomItem = news.newsInfo[randomIndex];
-document.getElementById("news").innerHTML = randomItem;
-
-setInterval(function() {
-    let randomIndex = Math.floor(Math.random() * news.newsInfo.length);
-
-    let randomItem = news.newsInfo[randomIndex];
-    document.getElementById("news").innerHTML = randomItem;
-}, 10000)
-
-function returnModern() {
-    window.location.href = 'index.html';
-}
-
-function goStoneage() {
+    loadGame();
     console.log(game.completionPercentage)
-    if (game.completionPercentage >= 75) {
-        window.location.href = 'stoneage.html';
-        console.log('fail')
-    } else {
-        console.log('pass')
-    }
+
 }
-
-if (pathname == '/civInfo.html') {
-    console.log('step 1')
-    if (game.completionPercentage >= 75) {
-        console.log('step 2')
-        document.getElementById('stoneageImg').style.filter = 'brightness(100%)'
-    }
-}
-
-if (pathname != '/civInfo.html') {
-    document.getElementById('clicker').addEventListener('click', function() {
-        game.totalClicks++;
-        game.addToScore(game.clickValue * game.ascendInfo)
-
-        createNumberOnClicker(event)
-    }, false);
-}
-
-setInterval(function() {
-    acsend();
-}, 1000)

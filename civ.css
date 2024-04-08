@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-image: url('images/111.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.boxCivInfo {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(217, 185, 155, 0.8);
+    color: black;
+    text-align: center;
+    line-height: 100px;
+    margin: auto;
+    display: inline-block;
+    cursor: pointer;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-left: 600px;
+    padding-right: 800px;
+    padding-top: 200px;
+    padding-bottom: 400px;
+}
+
+.returnBox {
+    width: fit-content;
+    height: fit-content;
+    background-color: rgba(185, 156, 129, 1);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border: none;
+    position: absolute;
+    top: 10px;
+    left: 1390px;
+    transition: 500ms;
+}
+
+.returnBox:hover {
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.modernImg {
+    position: absolute;
+    top: 80px;
+    left: 30px;
+}
+
+.modernTitle {
+    position: absolute;
+    top: 200px;
+    left: 30px;
+}
+
+.stoneageImg {
+    position: absolute;
+    top: 80px;
+    left: 320px;
+}
+
+#stoneageImg {
+    filter: brightness(0%);
+}
+
+.stoneageTitle {
+    position: absolute;
+    top: 200px;
+    left: 355px;
+}
+
+.ancientEraImg {
+    position: absolute;
+    top: 80px;
+    left: 580px;
+}
+
+#ancientImg {
+    filter: brightness(0%);
+}
+
+.ancientEraTitle {
+    position: absolute;
+    top: 200px;
+    left: 620px;
+}
+
+.medevalImg {
+    position: absolute;
+    top: 50px;
+    left: 820px;
+}
+
+#medevalImg {
+    filter: brightness(0%);
+}
+
+.medevalTitle {
+    position: absolute;
+    top: 200px;
+    left: 860px;
+}
+
+.renaissanceEraImg {
+    position: absolute;
+    top: 35px;
+    left: 1070px;
+    filter: grayscale(100%);
+}
+
+#renaissanceImg {
+    filter: brightness(0%);
+}
+
+.renaissanceEraTitle {
+    position: absolute;
+    top: 200px;
+    left: 1090px;
+}
+
+.industrailEraImg {
+    position: absolute;
+    top: 320px;
+    left: 10px;
+    filter: grayscale(100%);
+}
+
+#industrailImg {
+    filter: brightness(0%);
+}
+
+.industrailEraTitle {
+    position: absolute;
+    top: 500px;
+    left: 30px;
+}
+
+.nearFutureImg {
+    position: absolute;
+    top: 350px;
+    left: 320px;
+    transform: scale(2)
+}
+
+#nearFutureImg {
+    filter: brightness(0%);
+}
+
+.nearFutureTitle {
+    position: absolute;
+    top: 500px;
+    left: 240px;
+    line-height: 1.5;
+}
+
+.neotechImg {
+    position: absolute;
+    top: 310px;
+    left: 580px;
+    filter: grayscale(100%);
+    transform: scale(0.9);
+}
+
+#neoTechImg {
+    filter: brightness(0%);
+}
+
+.neotechTitle {
+    position: absolute;
+    top: 500px;
+    left: 620px;
+}
+
+.spaceageImg {
+    position: absolute;
+    top: 340px;
+    left: 800px;
+    filter: grayscale(100%);
+    transform: scale(1.3)
+}
+
+#spaceAgeImg {
+    filter: brightness(0%);
+}
+
+.spaceageTitle {
+    position: absolute;
+    top: 500px;
+    left: 875px;
+}
+
+.type3Img {
+    position: absolute;
+    top: 340px;
+    left: 1090px;
+}
+
+.type3Title {
+    position: absolute;
+    top: 500px;
+    left: 1090px;
+}
+
+.hoverInfo {
+    color: rgba(0, 0, 0, 0.5);
+    top: 0px;
+    left: 10px;
+    position: absolute;
+    height: fit-content;
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.infoParagraph {
+    color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+}
