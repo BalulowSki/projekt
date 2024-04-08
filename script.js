@@ -32,19 +32,12 @@ function endCombo() {
     }
 }
 
-// function updateClickerFunctionality() {
-//   if (comboActive == true) {
-//     document.getElementById('div').style.color = '#008000'
-//   } else {
-//     //document.getElementById('div').style.color = '#000000'
-//   }
-// }
 
 console.log(pathname)
 
 let clickSound = document.getElementById('clickSound');
 
-function playClickSound() { //click
+function playClickSound() {
     if (clickSound && !clickSound.paused) {
         clickSound.pause();
         clickSound.currentTime = 0;
@@ -58,7 +51,7 @@ button.addEventListener('click', playClickSound);
 
 let clickSound2 = document.getElementById('clickSound');
 
-function playClickSound2() { //buildinsg
+function playClickSound2() {
     if (clickSound2 && !clickSound2.paused) {
         clickSound2.pause();
         clickSound2.currentTime = 0;
@@ -68,7 +61,7 @@ function playClickSound2() { //buildinsg
 
 let clickSound3 = document.getElementById('clickSound');
 
-function playClickSound3() { //upgrades
+function playClickSound3() {
     if (clickSound3 && !clickSound3.paused) {
         clickSound3.pause();
         clickSound3.currentTime = 0;
@@ -165,7 +158,7 @@ let building = {
         'Planet Hopping Boots',
         'Matter Transformer',
         'HTML Console',
-        //'test building'
+
     ],
     image: [
         'cursor.png',
@@ -178,10 +171,9 @@ let building = {
         'planet.png',
         'matter.png',
         'console.png',
-        //'matter.png'
     ],
     count: [
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, //0
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     ],
     income: [
         1,
@@ -194,7 +186,7 @@ let building = {
         44000,
         260000,
         1600000,
-        //100000000000000000000000000000000000000000000000000000000000000000000
+
     ],
 
     cost: [
@@ -208,7 +200,7 @@ let building = {
         330000000,
         5100000000,
         75000000000,
-        //1
+
     ],
 
     description: [
@@ -1324,12 +1316,7 @@ let display = {
         for (i = 0; i < achievement.name.length; i++) {
             if (achievement.awarded[i]) {
                 document.getElementById('achievementContanier').innerHTML += '<img src="images/' + achievement.image[i] + '" title="' + achievement.name[i] + ' &#10; ' + achievement.description[i] + '">'
-                    // if (achievement.name[i] == 'Time Machine' && achievement.awarded[i] == true) {
-                    //   document.getElementById('civIcon').style.filter = 'brightness(100%)'
-                    //   document.getElementById('civIcon').title = 'Unlocked'
-                    //   console.log('good')
-                    //   timeMachineBrought = true;
-                    // }
+
             }
         }
     },
@@ -1410,7 +1397,7 @@ function ascendButton() {
 }
 
 function name() {
-    let name = prompt("What would you like to change you Business's name to?");
+    let name = prompt("Jak chcesz nazwać swój biznes?");
     document.getElementById('yourName').innerHTML = name
 }
 
@@ -1537,9 +1524,9 @@ function civInfo() {
     if (timeMachineBrought == true) {
         window.location.href = 'civInfo.html';
         saveGame();
-        // if (game.completionPercentage >= 75) {
+
         document.getElementById('modernImg').style.filter = 'greyscale(0%)'
-            //}
+
     }
 }
 
@@ -1550,41 +1537,41 @@ function buy1() {
 }
 
 setInterval(function() {
-        for (i = 0; i < achievement.name.length; i++) {
-            if (achievement.type[i] == 'score' && game.totalScore >= achievement.requirement[i]) {
-                achievement.earn(i);
-            } else if (achievement.type[i] == 'click' && game.totalClicks >= achievement.requirement[i]) {
-                achievement.earn(i);
-            } else if (achievement.type[i] == 'building' && building.count[achievement.objectIndex[i]] >= achievement.requirement[i]) {
-                achievement.earn(i);
-            }
+    for (i = 0; i < achievement.name.length; i++) {
+        if (achievement.type[i] == 'score' && game.totalScore >= achievement.requirement[i]) {
+            achievement.earn(i);
+        } else if (achievement.type[i] == 'click' && game.totalClicks >= achievement.requirement[i]) {
+            achievement.earn(i);
+        } else if (achievement.type[i] == 'building' && building.count[achievement.objectIndex[i]] >= achievement.requirement[i]) {
+            achievement.earn(i);
         }
+    }
 
-        game.score += game.getScorePerSecond();
-        game.totalScore += game.getScorePerSecond();
-        display.updateScore()
-        display.updateAchievements();
-        display.updateAchievementPercentage();
-    }, 1000) //1000 ms = 1 second
+    game.score += game.getScorePerSecond();
+    game.totalScore += game.getScorePerSecond();
+    display.updateScore()
+    display.updateAchievements();
+    display.updateAchievementPercentage();
+}, 1000)
 
 setInterval(function() {
     display.updateScore();
     display.updateUpgrades();
-}, 10000); //10000m s= 10 seconds
+}, 10000);
 
 setInterval(function() {
     saveGame();
-}, 30000); //30000ms = 30 seconds
+}, 30000);
 
 document.addEventListener('keydown', e => {
     if (e.key.toLowerCase() === 'y' && e.ctrlKey) {
         alert('Udało się zapisać grę!')
         saveGame()
     }
-}); //ctrl y to save game
+});
 
 window.onload = function() {
-    //loadGame();
+
 
     display.updateScore();
     display.updateUpgrades();
