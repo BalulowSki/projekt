@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <link rel='stylesheet' href="style.css">
+    <link rel="icon" type="image/x-icon" href="/images/cycle.png">
+    <title>Cyklonizator 2000</title>
+</head>
+
+<body id='bodyMain2'>
+    <p id='news'></p>
+    <audio id="clickSound" src="click2.mp3"></audio>
+    <audio id="clickSound2" src="purchase.mp3"></audio>
+    <div class="sectionLeft">
+        <h3>Osiągnięcia (<span id='achievementCounter'>0</span>/105 <span id='completionPercentage'>0</span>%)</h3>
+        <div id='achievementContanier'></div>
+        <center>
+            <p onclick='name()'><span id='yourName'>Niczyj</span> Biznes</p>
+            <div class="scoreContanier">
+                <span id='score'>0</span> Cyklony<br><span id='scorepersecond'>0</span> Cyklony Na Sekundę
+            </div>
+            <br>
+            <div class='unselectable' id='clicker'></div>
+            <div class='goldenCycle' id='godlenCycle'></div>
+            <div id="container"></div>
+        </center>
+    </div>
+    <div class="sectionRight">
+        <img src='images/civsIcon.png' class='civIcon' width='50%' title='Locked' id='civIcon' onclick='civInfo()'>
+        <h4>Premia Wniebowstąpienia <span id='acsend'>0</span></h4>
+        <button class='ascendbutton' onclick='ascendButton()' id='ascend'>Poziom rozwoju</button>
+        <h3>Ulepszenia</h3>
+        <div id='upgradeContanier'>
+            <p class="buyUpgradeAll" id='buyAllUpgrades' onclick='buyAllUpgrades()'>Kup wszystkie</p>
+
+        </div>
+        <p class='buyIndex' id='buy1' onclick='buy1()'>Kup 1</p>
+        <p class='buyIndex' id='buy10' onclick='buy10()'>Kup 10</p>
+        <p class='buyIndex' id='buy100' onclick='buy100()'>Kup 100</p>
+        <div id='shopContanier'></div>
+        <div id='achievementContanier'></div>
+    </div>
+</body>
+
+</html>

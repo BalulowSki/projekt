@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-image: url('images/111.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.sectionLeft {
+    float: left;
+    width: 80%;
+}
+
+.sectionRight {
+    float: right;
+    width: 20%
+}
+
+.scoreContanier {
+    background-color: rgb(238, 238, 238, 0.6);
+    width: 50%;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+/*.clickerContanier img {
+  position: relative;
+  transition: all .2s ease-in-out;
+}
+
+.clickerContanier img:hover { transform: scale(1.1) }
+.clickerContanier img:active { transform: scale(0.99);}*/
+
+#clicker {
+    background-image: url('images/cycle.png');
+    background-size: contain;
+    position: relative;
+    transition: all .2s ease-in-out;
+    height: 256px;
+    width: 256px;
+}
+
+#clicker:hover {
+    transform: scale(1.10)
+}
+
+#clicker:active {
+    transform: scale(0.9)
+}
+
+#clicker>.number {
+    z-index: 99;
+    font-size: 24px;
+    color: black;
+    position: absolute;
+}
+
+.shopButton {
+    background-color: #CD853F;
+    color: #FFD700;
+    border: 2px solid #8B4513;
+    border-radius: 0px 20px 20px 0px;
+    padding: 8px 16px;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    margin: 10px;
+}
+
+.shopButton:hover {
+    background-color: #8B4513;
+    transform: scale(1.05);
+}
+
+.shopButton img {
+    height: 64px;
+    width: 64px;
+    opacity: 0.8;
+}
+
+.shopButton #nameAndCost p {
+    margin: 0px;
+    width: 60%;
+}
+
+.shopButton #nameAndCost p:first-of-type {
+    font-size: 24px;
+}
+
+.shopButton #amount {
+    padding-left: 50px;
+    font-size: 48px;
+    color: #FFD700;
+    width: 15%
+}
+
+#upgradeContanier img {
+    height: 64px;
+    width: 64px;
+    border: 2px solid #8B4513;
+    padding: 5px;
+    background-color: #CD853F;
+    opacity: 0.8;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    margin-right: 5px;
+}
+
+#achievementContanier img {
+    height: 64px;
+    width: 64px;
+    border: 2px solid #8B4513;
+    margin-right: 5px;
+    padding: 5px;
+    background-color: #CD853F;
+    /* Brown */
+    opacity: 0.8;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+#upgradeContanier img:hover {
+    background-color: #8B4513;
+    /* Darker Brown on hover */
+    transform: scale(1.05);
+}
+
+#achievementContanier img:hover {
+    background-color: #8B4513;
+    /* Darker Brown on hover */
+    transform: scale(1.05);
+}
+
+#achievementContanier {
+    max-width: 300px;
+    position: absolute;
+}
+
+.sectionLeft h3 {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    margin-left: 50px;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.sectionRight h3 {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    margin-left: 50px;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.civIcon {
+    margin-left: 80px;
+    filter: brightness(0%);
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+    margin: 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.image-container {
+    position: relative;
+    width: 300px;
+    height: 200px;
+}
+
+.shine-effect {
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+    animation: shine 2s infinite;
+}
+
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+#soundtrack {
+    display: none;
+}
+
+#clickable-image {
+    cursor: pointer;
+}
+
+#click-sound {
+    display: none;
+}
+
+#news {
+    margin-left: 330px;
+}
+
+.ascendbutton {
+    border-radius: 0px 10px 10px 0px;
+    background-color: #CD853F;
+    color: #FFD700;
+    font-weight: bolder;
+    border: 2px solid #8B4513;
+    padding: 8px 16px;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    margin: 10px;
+}
+
+.ascendbutton:hover {
+    background-color: #8B4513;
+    transform: scale(1.05);
+}
+
+.buyIndex {
+    display: inline;
+    margin-right: 57px;
+    margin-top: 10px;
+    font-weight: bolder;
+    color: #595959;
+}
+
+.click-number {
+    color: red;
+}
+
+#click-number-id {
+    color: blue;
+}
+
+#goldenCycle {
+    background-color: red;
+    size: 40px;
+}
